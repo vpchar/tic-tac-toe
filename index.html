@@ -1,26 +1,122 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Tic Tac Toe</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-  <h1>Tic Tac Toe</h1>
-  <div id="game">
-    <div class="square" id="s1"></div>
-    <div class="square" id="s2"></div>
-    <div class="square" id="s3"></div>
-    <div class="square" id="s4"></div>
-    <div class="square" id="s5"></div>
-    <div class="square" id="s6"></div>
-    <div class="square" id="s7"></div>
-    <div class="square" id="s8"></div>
-    <div class="square" id="s9"></div>
-  </div>
-  <div id="buttons">
+  <head>
+    <title>Tic Tac Toe</title>
+    <style>
+      .square {
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+        text-align: center;
+        font-size: 24px;
+      }
+      .row {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="game">
+      <div class="row">
+        <div class="square" id="0"></div>
+        <div class="square" id="1"></div>
+        <div class="square" id="2"></div>
+      </div>
+      <div class="row">
+        <div class="square" id="3"></div>
+        <div class="square" id="4"></div>
+        <div class="square" id="5"></div>
+      </div>
+      <div class="row">
+        <div class="square" id="6"></div>
+        <div class="square" id="7"></div>
+        <div class="square" id="8"></div>
+      </div>
+    </div>
     <button id="reset">Reset</button>
-    <button id="mode">Change Mode</button>
-  </div>
-  <script src="script.js"></script>
-</body>
+    <script>
+      const squares = document.querySelectorAll(".square");
+      const resetButton = document.querySelector("#reset");
+      let currentPlayer = "X";
+      let gameOver = false;
+      function resetGame() {
+        currentPlayer = "X";
+        gameOver = false;
+        squares.forEach((square) => {
+          square.textContent = "";
+        });
+      }
+
+      function makeMove(square) {
+        if (gameOver || square.textContent !== "") {
+          return;
+        }
+        square.textContent = currentPlayer;
+        checkForWin();
+        if (gameOver) {
+          return;
+        }
+        currentPlayer = currentPlayer === "X" ? "O" : "X";
+      }
+
+      function checkForWin() {
+        // check rows
+        for (let i = 0; i < 9; i += 3) {
+          if (
+            squares[i].textContent === squares[i + 1].textContent &&
+            squares[i].textContent === squares[i + 2].textContent &&
+            squares[i].textContent !== ""
+          ) {
+            gameOver = true;
+            return;
+          }
+        }
+        // check columns
+        for (let i = 0; i < 3; i++) {
+          if (
+            squares[i].textContent === squares[i + 3].textContent &&
+            squares[i].textContent === squares[i + 6].textContent &&
+            squares[i].textContent !== ""
+          ) {
+            gameOver = true;
+            return;
+          }
+        }
+        // check diagonals
+        if (
+          squares[0].textContent === squares[4].textContent &&
+          squares[0].textContent === squares[8].textContent &&
+          squares[0].textContent !== ""
+        ) {
+          gameOver = true;
+          return;
+        }
+        if (
+          squares[2].textContent === squares[4].textContent &&
+          squares[2].textContent === squares[6].textContent &&
+          squares[2].textContent !== ""
+        ) {
+          gameOver = true;
+          return;
+        }
+        // check for draw
+        let emptySquares = false;
+        squares.forEach((square) => {
+          if (square.textContent === "") {
+            emptySquares = true;
+          }
+        });
+        if (!emptySquares) {
+          gameOver = true;
+        }
+      }
+
+      squares.forEach((square) => {
+        square.addEventListener("click", () => {
+          makeMove(square);
+        });
+      });
+      resetButton.addEventListener("click", resetGame);
+    </script>
+  </body>
 </html>
