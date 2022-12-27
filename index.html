@@ -24,15 +24,15 @@
   <body>
     <div class="game">
       <!-- Create nine squares for the tic-tac-toe board -->
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
+      <div class="square" id="0"></div>
+      <div class="square" id="1"></div>
+      <div class="square" id="2"></div>
+      <div class="square" id="3"></div>
+      <div class="square" id="4"></div>
+      <div class="square" id="5"></div>
+      <div class="square" id="6"></div>
+      <div class="square" id="7"></div>
+      <div class="square" id="8"></div>
     </div>
   </body>
   <script>
@@ -64,7 +64,9 @@
       const row = Math.floor(event.target.id / 3);
       const col = event.target.id % 3;
       gameState[row][col] = currentPlayer;
-
+      console.table(gameState);
+      console.log(event.target);
+      // lert("");
       // Check for a win or a draw
       const result = checkResult(gameState, currentPlayer);
       if (result === "X" || result === "O") {
