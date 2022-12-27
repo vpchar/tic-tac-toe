@@ -6,3 +6,6 @@
 
 # (3) The 3rd attempt, in new prompt (chat), I asked propar question. It was "almost" working...and after some code checking I found the problem to be the html code. It forgot to "steal" the id="n" parametters from the decision tree... Anyway, with this small change, the code is officially working(see '1st working commit')
 
+# (4) Asked the chat bot for reset button div. Then added some changes in the code to implement reset (basically, one click handler added on several places) -- BTW -- the chatbot code is quite repetetive -- BUT IT WORKS
+
+# (5) Human: deleted leftover css and js files (from failed attempt 1)
