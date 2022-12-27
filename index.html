@@ -34,10 +34,15 @@
       <div class="square" id="7"></div>
       <div class="square" id="8"></div>
     </div>
+    <div style="text-align: center; width: 300px;padding:15px">
+      <button id="resetButton" >Reset</button>
+    </div>
+    
   </body>
   <script>
     // Keep track of the game state
     const squares = document.querySelectorAll(".square");
+    const resetBtn = document.querySelector("#resetButton");
     let currentPlayer = "X";
     let gameOver = false;
     let gameState = [
@@ -45,7 +50,23 @@
       ["", "", ""],
       ["", "", ""],
     ];
-
+    //added by the human ;-)   
+    resetBtn.addEventListener("click",()=>{
+       handleReset();
+    })
+    const handleReset = () => {
+      currentPlayer = "X";
+       gameOver = false;
+       gameState = [
+        ["", "", ""],
+        ["", "", ""],
+        ["", "", ""],
+      ];  
+      squares.forEach((square) => {
+        square.textContent="";
+      });
+      resetBtn.textContent="Reset"
+    }
     // Add an event listener to each square to handle clicks
     squares.forEach((square) => {
       square.addEventListener("click", handleClick);
@@ -64,25 +85,24 @@
       const row = Math.floor(event.target.id / 3);
       const col = event.target.id % 3;
       gameState[row][col] = currentPlayer;
-      console.table(gameState);
-      console.log(event.target);
-      // lert("");
+
       // Check for a win or a draw
       const result = checkResult(gameState, currentPlayer);
       if (result === "X" || result === "O") {
         // Game over - show a message and disable clicks on the squares
         gameOver = true;
-        alert(`Player ${result} wins!`);
-        squares.forEach((square) => {
-          square.removeEventListener("click", handleClick);
-        });
+        resetBtn.textContent=(`Player ${result} wins!`);
+         squares.forEach((square) => {
+           square.textContent="";
+         });
+        
       } else if (result === "draw") {
         // Game over - show a message and disable clicks on the squares
         gameOver = true;
-        alert(`It's a draw!`);
-        squares.forEach((square) => {
-          square.removeEventListener("click", handleClick);
-        });
+        resetBtn.textContent=(`It's a draw!`);
+        // squares.forEach((square) => {
+        //   square.removeEventListener("click", handleClick);
+        // });
       } else {
         // Switch players
         currentPlayer = currentPlayer === "X" ? "O" : "X";
@@ -167,17 +187,17 @@
       if (result === "O") {
         // Game over - show a message and disable clicks on the squares
         gameOver = true;
-        alert(`Player O wins!`);
-        squares.forEach((square) => {
-          square.removeEventListener("click", handleClick);
-        });
+        resetBtn.textContent=(`Player O wins!`);
+        // squares.forEach((square) => {
+        //   square.removeEventListener("click", handleClick);
+        // });
       } else if (result === "draw") {
         // Game over - show a message and disable clicks on the squares
         gameOver = true;
-        alert(`It's a draw!`);
-        squares.forEach((square) => {
-          square.removeEventListener("click", handleClick);
-        });
+        resetBtn.textContent=(`It's a draw!`);
+        // squares.forEach((square) => {
+        //   square.removeEventListener("click", handleClick);
+        // });
       }
     }
 
