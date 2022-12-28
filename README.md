@@ -10,7 +10,7 @@ A human developer then took my code and made some fixes and improvements to make
 
 ## How to Play
 
-To play the game, open the [Live Demo](https://vpchar.github.io/dist/tic-tac-toe) file in a web browser. The game should start automatically.
+To play the game, open the [Live Demo](https://vpchar.github.io/tic-tac-toe/dist) file in a web browser. The game should start automatically.
 
 Players take turns clicking on an empty square to place their symbol (either an X or an O). The first player to get three of their symbols in a row (horizontally, vertically, or diagonally) wins the game. If all of the squares are filled and no player has won, the game is a draw.
 
