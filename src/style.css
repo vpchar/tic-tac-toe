@@ -1,6 +1,10 @@
 /*
   1. Use a more-intuitive box-sizing model.
 */
+@font-face {
+    font-family: Pirata;
+    src: url(PirataOne-Regular.ttf),
+    }
 *, *::before, *::after {
     box-sizing: border-box;
   }
@@ -15,6 +19,7 @@
   */
   html, body {
     height: 100%;
+    font-family: "Pirata";
   }
   /*
     Typographic tweaks!
@@ -65,17 +70,30 @@
   justify-content: center;
   align-items: center;
   font-size: 48px;
-  font-weight: bold;
+  font-family: "Pirata";
+  font-weight: regular;
   cursor: pointer;
-  border:1px dashed gray;
+  border:1px dashed rgb(125, 120, 18);
+
 }
 #resetButton{
     width: min(75vh,75vw);
     height: min(10vh,10vw);
     margin-top: 15px;
     margin-bottom: 15px;
+    background-color: rgb(208, 203, 203);
+    border: 0 none;
+    border-radius: 12px;
+    color: rgb(48, 27, 0);
+    font-family: "Pirata";
+}
+#resetButton:hover{
+    background-color: rgb(103, 103, 103);
 }
 body{
     width: min(75vh,75vw);
+    height: 100vh;
     margin: 20px auto;
+    color: rgb(226, 215, 15);
+    background-color: black;
 }
