@@ -17,3 +17,7 @@
 (8) AI wrote the README.md
 
 (9) I uploaded the thing to github ;-)
+
+# DAY 2
+
+(10) Tested AI to help with webpack. Didn't go well. Had to check config files and fix forgotten parts. Not anything at the end of the spear is good token...
