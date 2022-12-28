@@ -55,9 +55,11 @@
   display: grid;
   grid-template-columns: repeat(3,25vh);
 }
-.square {
+.square { 
   width: 25vh;
   height: 25vh;
+  min-width: 100px;
+  min-height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
