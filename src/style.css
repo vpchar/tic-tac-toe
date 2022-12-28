@@ -51,13 +51,14 @@
     isolation: isolate;
   }
 /* Add some style to the game */
+
 .game {
   display: grid;
-  grid-template-columns: repeat(3,25vh);
+  grid-template-columns: repeat(3,min(25vh,25vw));
 }
 .square { 
-  width: 25vh;
-  height: 25vh;
+  width: min(25vh,25vw);
+  height: min(25vh,25vw);
   min-width: 100px;
   min-height: 100px;
   display: flex;
@@ -67,4 +68,14 @@
   font-weight: bold;
   cursor: pointer;
   border:1px dashed gray;
+}
+#resetButton{
+    width: min(75vh,75vw);
+    height: min(10vh,10vw);
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+body{
+    width: min(75vh,75vw);
+    margin: 20px auto;
 }
