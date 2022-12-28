@@ -1,4 +1,5 @@
 
+    import './style.css';
     // Keep track of the game state
     const squares = document.querySelectorAll(".square");
     const resetBtn = document.querySelector("#resetButton");
