@@ -1,10 +1,7 @@
 /*
   1. Use a more-intuitive box-sizing model.
 */
-@font-face {
-    font-family: Pirata;
-    src: url(PirataOne-Regular.ttf),
-    }
+
 *, *::before, *::after {
     box-sizing: border-box;
   }
@@ -19,7 +16,7 @@
   */
   html, body {
     height: 100%;
-    font-family: "Pirata";
+    font-family: Arial, Helvetica, sans-serif;
   }
   /*
     Typographic tweaks!
@@ -60,6 +57,7 @@
 .game {
   display: grid;
   grid-template-columns: repeat(3,min(25vh,25vw));
+  border:1px solid rgb(63, 63, 63);
 }
 .square { 
   width: min(25vh,25vw);
@@ -69,31 +67,33 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 48px;
-  font-family: "Pirata";
+  font-size: min(20vh, 20vw);
+  font-family: Arial, Helvetica, sans-serif;
+  color:rgb(44, 44, 44);
   font-weight: regular;
   cursor: pointer;
-  border:1px dashed rgb(125, 120, 18);
-
+  border:1px solid rgb(63, 63, 63);
+  font-family: Arial, Helvetica, sans-serif;
 }
 #resetButton{
     width: min(75vh,75vw);
     height: min(10vh,10vw);
     margin-top: 15px;
     margin-bottom: 15px;
-    background-color: rgb(208, 203, 203);
+    /* background-color: rgb(208, 203, 203); */
     border: 0 none;
     border-radius: 12px;
-    color: rgb(48, 27, 0);
-    font-family: "Pirata";
+    /* color: rgb(48, 27, 0); */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: min(4vh,4vw);
 }
 #resetButton:hover{
-    background-color: rgb(103, 103, 103);
+    background-color: rgb(202, 202, 202);
 }
 body{
     width: min(75vh,75vw);
     height: 100vh;
-    margin: 20px auto;
-    color: rgb(226, 215, 15);
-    background-color: black;
+    margin: 30px auto;
+    /* background-color: rgb(226, 215, 15); */
+    color: black;
 }
